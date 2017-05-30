@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="30dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/iv_atras"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/regresar_icon"/>
+
+    <TextView
+        android:id="@+id/tv_atras"
+        android:text="Regresar"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_gravity="center_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="com.lupita.memorama.JuegoActivity">
+
+        <include
+            android:id="@+id/include_cuatro"
+            layout="@layout/fragment_cuatro_cartas" />
+
+        <include
+            android:id="@+id/include_ocho"
+            layout="@layout/fragment_ocho_cartas" />
+
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/include_doce"
+            layout="@layout/fragment_doce_cartas"
+            android:layout_gravity="center"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

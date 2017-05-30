@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:layout_height="match_parent"
+    android:id="@+id/fragment_cuatro_cartas">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_marginBottom="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/ocho_img_uno"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginRight="70dp"
+            android:layout_marginEnd="70dp"
+            android:src="@drawable/omision"
+            />
+
+        <ImageView
+            android:id="@+id/ocho_img_dos"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/omision"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/ocho_img_tres"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginRight="70dp"
+            android:layout_marginEnd="70dp"
+            android:src="@drawable/omision"
+            />
+
+        <ImageView
+            android:id="@+id/ocho_img_cuatro"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/omision"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_marginBottom="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/ocho_img_cinco"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginRight="70dp"
+            android:layout_marginEnd="70dp"
+            android:src="@drawable/omision"
+            />
+
+        <ImageView
+            android:id="@+id/ocho_img_seis"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/omision"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/ocho_img_siete"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginRight="70dp"
+            android:layout_marginEnd="70dp"
+            android:src="@drawable/omision"
+            />
+
+        <ImageView
+            android:id="@+id/ocho_img_ocho"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/omision"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

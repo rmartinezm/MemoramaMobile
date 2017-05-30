@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:layout_height="match_parent"
+    android:id="@+id/fragment_cuatro_cartas">
+
+    <LinearLayout
+        android:layout_marginBottom="85dp"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/cuatro_img_uno"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginEnd="50dp"
+            android:src="@drawable/omision" />
+
+        <ImageView
+            android:id="@+id/cuatro_img_dos"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:src="@drawable/omision"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginBottom="50dp"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/cuatro_img_tres"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginEnd="50dp"
+            android:src="@drawable/omision" />
+
+        <ImageView
+            android:id="@+id/cuatro_img_cuatro"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:src="@drawable/omision" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp" >
+
+            <ImageView
+                android:id="@+id/doce_img_uno"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/omision"
+                />
+
+            <ImageView
+                android:id="@+id/doce_img_dos"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:src="@drawable/omision"/>
+
+            <ImageView
+                android:layout_width="100dp"
+                android:id="@+id/doce_img_tres"
+                android:layout_height="100dp"
+                android:layout_gravity="end"
+                android:src="@drawable/omision"
+                />
+
+        </android.support.design.widget.CoordinatorLayout>
+
+        <android.support.design.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp" >
+
+            <ImageView
+                android:id="@+id/doce_img_cuatro"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/omision"
+                />
+
+            <ImageView
+                android:id="@+id/doce_img_cinco"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:src="@drawable/omision"
+                />
+
+            <ImageView
+                android:id="@+id/doce_img_seis"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="end"
+                android:src="@drawable/omision"
+                />
+
+        </android.support.design.widget.CoordinatorLayout>
+
+        <android.support.design.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp" >
+
+            <ImageView
+                android:id="@+id/doce_img_siete"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/omision"
+                />
+
+            <ImageView
+                android:id="@+id/doce_img_ocho"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:src="@drawable/omision"
+                />
+
+            <ImageView
+                android:id="@+id/doce_img_nueve"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="end"
+                android:src="@drawable/omision"
+                />
+
+        </android.support.design.widget.CoordinatorLayout>
+
+        <android.support.design.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp" >
+
+            <ImageView
+                android:id="@+id/doce_img_diez"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/omision"
+                />
+
+            <ImageView
+                android:id="@+id/doce_img_once"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:src="@drawable/omision"
+                />
+
+            <ImageView
+                android:id="@+id/doce_img_doce"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="end"
+                android:src="@drawable/omision"
+                />
+
+        </android.support.design.widget.CoordinatorLayout>
+
+    </LinearLayout>
+
+</ScrollView>
