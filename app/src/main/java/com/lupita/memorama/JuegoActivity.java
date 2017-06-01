@@ -17,6 +17,8 @@ import java.util.LinkedList;
 
 public class JuegoActivity extends AppCompatActivity implements View.OnClickListener{
 
+    /**Modo de juego. Historia de Mexico: 0. Historia Universal: 1**/
+    private int modoJuego;
     /** Número de tarjetas con las que jugaremos **/
     private int numeroDeTarjetas;
     /** Listado de todas las tarjetas **/
@@ -56,8 +58,10 @@ public class JuegoActivity extends AppCompatActivity implements View.OnClickList
          numeroDeTarjetas = 0;
 
          Bundle bundle = getIntent().getExtras();
-         if (bundle != null)
+         if (bundle != null) {
              numeroDeTarjetas = bundle.getInt("numeroDeTarjetas");
+             modoJuego=bundle.getInt("modoJuego");
+         }
 
          // Si ocurre un error desconocido con el bundle
          if (numeroDeTarjetas == 0)

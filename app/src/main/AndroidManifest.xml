@@ -19,6 +19,9 @@
         <activity android:name=".JuegoActivity" />
         <activity android:name=".FelicidadesActivity" />
         <activity android:name=".InformacionTarjetaActivity"></activity>
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".NumCartas"></activity>
+        <activity android:name=".Info"></activity>
     </application>
 
 </manifest>

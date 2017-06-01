@@ -25,10 +25,10 @@ public class SplashScreen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(SplashScreen.this, JuegoActivity.class);
+                Intent intent = new Intent(SplashScreen.this, MainActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 // Prueba
-                intent.putExtra("numeroDeTarjetas", 12);
+                //intent.putExtra("numeroDeTarjetas", 12);
                 startActivity(intent);
                 finish();
             }

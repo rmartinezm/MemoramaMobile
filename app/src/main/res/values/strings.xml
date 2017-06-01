@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Memorama</string>
+    <string name="developers">Desarrollado por:\n Roberto Martinez\n Rodrigo Flores\nDiseño:\n Mario Nava</string>
+    <string name="web">http://mobile.unam.mx/</string>
+    <string name="derechos">Hecho en México, Universidad Nacional Autónoma de México (UNAM),\n
+    todos los derechos reservados 2017.\n
+    Esta página puede ser reproducida con fines no lucrativos, siempre y
+    cuando no se mutile, se cite la fuente completa y su dirección electrónica.
+    De otra forma, requiere permiso previo por escrito de la institución.</string>
+    <string name="num_cartas">¿CON CUÁNTAS CARTAS QUIERES JUGAR?</string>
 </resources>

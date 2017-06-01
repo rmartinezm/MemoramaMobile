@@ -19,7 +19,7 @@ public class FelicidadesActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(FelicidadesActivity.this, SplashScreen.class);
+                Intent intent = new Intent(FelicidadesActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
             }
