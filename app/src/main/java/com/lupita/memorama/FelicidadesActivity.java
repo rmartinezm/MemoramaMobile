@@ -1,12 +1,11 @@
 package com.lupita.memorama;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 
-public class FelicidadesActivity extends AppCompatActivity {
+public class FelicidadesActivity extends AppCompatActivity implements View.OnClickListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,14 +14,20 @@ public class FelicidadesActivity extends AppCompatActivity {
 
         getSupportActionBar().hide();
 
-        Button btn = (Button) findViewById(R.id.feliciadaes_btn_jugar);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(FelicidadesActivity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+        findViewById(R.id.felicidades_regresar).setOnClickListener(this);
+
+        findViewById(R.id.feliciadaes_iv_jugar).setOnClickListener(this);
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(FelicidadesActivity.this, MainActivity.class));
+        finish();
+    }
+
+    @Override
+    public void onClick(View view) {
+        startActivity(new Intent(FelicidadesActivity.this, MainActivity.class));
+        finish();
     }
 }
