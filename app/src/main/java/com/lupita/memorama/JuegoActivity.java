@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.lupita.memorama.Clases.Tarjeta;
@@ -17,31 +16,33 @@ import java.util.LinkedList;
 
 public class JuegoActivity extends AppCompatActivity implements View.OnClickListener{
 
-    /**Modo de juego. Historia de Mexico: 0. Historia Universal: 1**/
+    /* Modo de juego. Historia de Mexico: 0. Historia Universal: 1 */
     private int modoJuego;
-    /** Número de tarjetas con las que jugaremos **/
+    /* Número de tarjetas con las que jugaremos */
     private int numeroDeTarjetas;
-    /** Listado de todas las tarjetas **/
+    /* Listado de todas las tarjetas */
     private LinkedList<Tarjeta> todasLasTarjetas;
-    /** Array de las tarjetas con las que jugaremos **/
+    /* Array de las tarjetas con las que jugaremos */
     private Tarjeta[] tarjetasEnJuego;
-    /** View's que haremos visibles dependiendo el numero de tarjetas solicitado **/
+    /* View's que haremos visibles dependiendo el numero de tarjetas solicitado */
     private View includeCuatro, includeOcho, includeDoce;
-    /** Botón ir atras **/
+    /* Botón ir atras */
     private ImageView atras;
-    /** Objeto random para posicionar tarjetas al azar **/
+    /* Objeto random para posicionar tarjetas al azar */
     private SecureRandom random;
-    /** Variable que nos indica si una tarjeta esta volteada **/
+    /* Variable que nos indica si una tarjeta esta volteada */
     private boolean hayVolteada;
-    /** Posición de la tarjeta que esta volteada, -1 si ninguna lo esta **/
+    /* Posición de la tarjeta que esta volteada, -1 si ninguna lo esta */
     private int posicionVolteada;
-    /** ImageView's que contienen a las tarjetas **/
+    /* ImageView's que contienen a las tarjetas */
     private ImageView uno, dos, tres, cuatro, cinco, seis, siete, ocho, nueve, diez, once, doce;
-    /** Contador que indica cuantos pares de tarjetas ha hecho el usuario **/
+    /* ImageView's que indican si un par de tarjetas volteadas fueron iguales o no */
+    private ImageView unoCorrecto, dosCorrecto, tresCorrecto, cuatroCorrecto;
+    /* Contador que indica cuantos pares de tarjetas ha hecho el usuario */
     private int pares;
-    /** Entero que nos indica los números de pares que tenemos que lograr **/
+    /* Entero que nos indica los números de pares que tenemos que lograr */
     private int totalDePares;
-    /** Lista de ImageView's que tienen desactivado el OnClickListener **/
+    /* Lista de ImageView's que tienen desactivado el OnClickListener */
     private LinkedList<ImageView> imagenesSinListener;
 
      @Override
@@ -135,9 +136,13 @@ public class JuegoActivity extends AppCompatActivity implements View.OnClickList
         switch (numeroDeTarjetas){
             case 4:
                 uno = (ImageView) findViewById(R.id.cuatro_img_uno);
+                unoCorrecto = (ImageView) findViewById(R.id.cuatro_img_uno_correct);
                 dos = (ImageView) findViewById(R.id.cuatro_img_dos);
+                dosCorrecto = (ImageView) findViewById(R.id.cuatro_img_dos_correct);
                 tres = (ImageView) findViewById(R.id.cuatro_img_tres);
+                tresCorrecto = (ImageView) findViewById(R.id.cuatro_img_tres_correct);
                 cuatro = (ImageView) findViewById(R.id.cuatro_img_cuatro);
+                cuatroCorrecto = (ImageView) findViewById(R.id.cuatro_img_cuatro_correct);
                 break;
             case 8:
                 uno = (ImageView) findViewById(R.id.ocho_img_uno);
@@ -387,6 +392,10 @@ public class JuegoActivity extends AppCompatActivity implements View.OnClickList
                 imageViewFrom(posicionVolteada).setOnClickListener(null);
                 imagenesSinListener.add(imageViewFrom(posicionVolteada));
 
+                // Colocamos encima la imagen de correcto
+                Glide.with(this).load(R.drawable.correctas).into(imageViewCorrectFrom(position));
+                Glide.with(this).load(R.drawable.correctas).into(imageViewCorrectFrom(posicionVolteada));
+
                 hayVolteada = false;
                 posicionVolteada = -1;
                 pares++;
@@ -409,8 +418,13 @@ public class JuegoActivity extends AppCompatActivity implements View.OnClickList
             }else{
                 // No volteó las mismas tarjetas
                 // Las mostramos por 1 segundo y despues las ponemos boca abajo
+
+                Glide.with(this).load(R.drawable.incorrectas).into(imageViewCorrectFrom(position));
+                Glide.with(this).load(R.drawable.incorrectas).into(imageViewCorrectFrom(posicionVolteada));
+
                 AsyncTaskTarjetas att = new AsyncTaskTarjetas(position);
                 att.execute();
+
             }
 
         }else{
@@ -450,6 +464,21 @@ public class JuegoActivity extends AppCompatActivity implements View.OnClickList
                 return doce;
         }
         return null;
+    }
+
+    private ImageView imageViewCorrectFrom(int position){
+        switch (position){
+            case 0:
+                return unoCorrecto;
+            case 1:
+                return dosCorrecto;
+            case 2:
+                return tresCorrecto;
+            case 3:
+                return cuatroCorrecto;
+            default:
+                return unoCorrecto;
+        }
     }
 
     private void colocaBocaAbajo(int position){
@@ -506,13 +535,17 @@ public class JuegoActivity extends AppCompatActivity implements View.OnClickList
         protected void onPostExecute(Void aVoid) {
             colocaBocaAbajo(position);
             colocaBocaAbajo(posicionVolteada);
-            hayVolteada = false;
-            posicionVolteada = -1;
 
             // Les asignamos el listener si es que no se lo habiamos quitado anteriormente
             for (int i = 0; i < numeroDeTarjetas; i++)
                 if (!imagenesSinListener.contains(imageViewFrom(i)))
                     imageViewFrom(i).setOnClickListener(JuegoActivity.this);
+
+            Glide.with(JuegoActivity.this).load(R.drawable.transparent).into(imageViewCorrectFrom(position));
+            Glide.with(JuegoActivity.this).load(R.drawable.transparent).into(imageViewCorrectFrom(posicionVolteada));
+
+            hayVolteada = false;
+            posicionVolteada = -1;
         }
     }
 

@@ -17,7 +17,23 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="60dp"
         android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
         app:layout_constraintLeft_toLeftOf="parent" />
+
+    <ImageView
+        android:id="@+id/cuatro_img_uno_correct"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/cuatro_img_uno"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="@+id/cuatro_img_uno"
+        app:layout_constraintRight_toRightOf="@+id/cuatro_img_uno"
+        app:layout_constraintTop_toTopOf="@+id/cuatro_img_uno" />
 
     <ImageView
         android:id="@+id/cuatro_img_dos"
@@ -29,6 +45,19 @@
         android:layout_marginRight="20dp"
         app:layout_constraintRight_toRightOf="parent" />
 
+    <ImageView
+        android:id="@+id/cuatro_img_dos_correct"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="@+id/cuatro_img_dos"
+        app:layout_constraintBottom_toBottomOf="@+id/cuatro_img_dos"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/cuatro_img_dos"
+        app:layout_constraintTop_toTopOf="@+id/cuatro_img_dos"
+        android:layout_marginTop="8dp" />
+
 
     <ImageView
         android:id="@+id/cuatro_img_tres"
@@ -38,7 +67,22 @@
         android:layout_marginTop="35dp"
         app:layout_constraintTop_toBottomOf="@+id/cuatro_img_uno"
         android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
         app:layout_constraintLeft_toLeftOf="parent" />
+
+    <ImageView
+        android:id="@+id/cuatro_img_tres_correct"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/cuatro_img_tres"
+        app:layout_constraintLeft_toLeftOf="@+id/cuatro_img_tres"
+        app:layout_constraintRight_toRightOf="@+id/cuatro_img_tres"
+        app:layout_constraintHorizontal_bias="0.625"
+        app:layout_constraintTop_toTopOf="@+id/cuatro_img_tres"
+        android:layout_marginTop="8dp" />
 
     <ImageView
         android:id="@+id/cuatro_img_cuatro"
@@ -48,7 +92,21 @@
         android:layout_marginTop="35dp"
         app:layout_constraintTop_toBottomOf="@+id/cuatro_img_dos"
         android:layout_marginRight="20dp"
+        android:layout_marginEnd="20dp"
         app:layout_constraintRight_toRightOf="parent" />
+
+    <ImageView
+        android:id="@+id/cuatro_img_cuatro_correct"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="@+id/cuatro_img_cuatro"
+        app:layout_constraintBottom_toBottomOf="@+id/cuatro_img_cuatro"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/cuatro_img_cuatro"
+        app:layout_constraintTop_toTopOf="@+id/cuatro_img_cuatro"
+        android:layout_marginTop="8dp" />
 
 
 </android.support.constraint.ConstraintLayout>

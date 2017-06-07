@@ -8,6 +8,19 @@
     tools:context="com.lupita.memorama.FelicidadesActivity">
 
     <ImageView
+        android:id="@+id/iv_felicidades"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/feliciadaes_iv_jugar"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
         android:id="@+id/felicidades_regresar"
         android:layout_width="115dp"
         android:layout_height="55dp"
