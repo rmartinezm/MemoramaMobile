@@ -1,133 +1,291 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+
+<android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/doce_img_uno"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/carta_boca_abajo"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="10dp" />
 
-        <android.support.design.widget.CoordinatorLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp" >
+    <ImageView
+        android:id="@+id/doce_img_dos"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/carta_boca_abajo"
+        app:layout_constraintRight_toLeftOf="@+id/doce_img_tres"
+        android:layout_marginRight="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="10dp"
+        app:layout_constraintLeft_toRightOf="@+id/doce_img_uno"
+        android:layout_marginLeft="8dp" />
 
-            <ImageView
-                android:id="@+id/doce_img_uno"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/carta_boca_abajo"
-                />
+    <ImageView
+        android:layout_width="100dp"
+        android:id="@+id/doce_img_tres"
+        android:layout_height="100dp"
+        android:src="@drawable/carta_boca_abajo"
+        android:layout_marginRight="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="10dp" />
 
-            <ImageView
-                android:id="@+id/doce_img_dos"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                android:src="@drawable/carta_boca_abajo"/>
+    <ImageView
+        android:id="@+id/doce_img_cuatro"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/carta_boca_abajo"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="25dp"
+        app:layout_constraintTop_toBottomOf="@+id/doce_img_uno" />
 
-            <ImageView
-                android:layout_width="100dp"
-                android:id="@+id/doce_img_tres"
-                android:layout_height="100dp"
-                android:layout_gravity="end"
-                android:src="@drawable/carta_boca_abajo"
-                />
+    <ImageView
+        android:id="@+id/doce_img_cinco"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/carta_boca_abajo"
+        app:layout_constraintRight_toLeftOf="@+id/doce_img_seis"
+        android:layout_marginRight="8dp"
+        app:layout_constraintLeft_toRightOf="@+id/doce_img_cuatro"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintTop_toBottomOf="@+id/doce_img_dos" />
 
-        </android.support.design.widget.CoordinatorLayout>
+    <ImageView
+        android:id="@+id/doce_img_seis"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/carta_boca_abajo"
+        android:layout_marginRight="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="25dp"
+        app:layout_constraintTop_toBottomOf="@+id/doce_img_tres" />
 
-        <android.support.design.widget.CoordinatorLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp" >
+    <ImageView
+        android:id="@+id/doce_img_siete"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/carta_boca_abajo"
+        android:layout_marginBottom="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/doce_img_diez"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
 
-            <ImageView
-                android:id="@+id/doce_img_cuatro"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/carta_boca_abajo"
-                />
+    <ImageView
+        android:id="@+id/doce_img_ocho"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/carta_boca_abajo"
+        app:layout_constraintRight_toLeftOf="@+id/doce_img_nueve"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/doce_img_once"
+        app:layout_constraintLeft_toRightOf="@+id/doce_img_siete"
+        android:layout_marginLeft="8dp" />
 
-            <ImageView
-                android:id="@+id/doce_img_cinco"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                android:src="@drawable/carta_boca_abajo"
-                />
+    <ImageView
+        android:id="@+id/doce_img_nueve"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/carta_boca_abajo"
+        android:layout_marginRight="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/doce_img_doce" />
 
-            <ImageView
-                android:id="@+id/doce_img_seis"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="end"
-                android:src="@drawable/carta_boca_abajo"
-                />
+    <ImageView
+        android:id="@+id/doce_img_diez"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/carta_boca_abajo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
 
-        </android.support.design.widget.CoordinatorLayout>
+    <ImageView
+        android:id="@+id/doce_img_once"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/carta_boca_abajo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="@+id/doce_img_doce"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/doce_img_diez" />
 
-        <android.support.design.widget.CoordinatorLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp" >
+    <ImageView
+        android:id="@+id/doce_img_doce"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/carta_boca_abajo"
+        android:layout_marginRight="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="10dp" />
 
-            <ImageView
-                android:id="@+id/doce_img_siete"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/carta_boca_abajo"
-                />
 
-            <ImageView
-                android:id="@+id/doce_img_ocho"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                android:src="@drawable/carta_boca_abajo"
-                />
+    <ImageView
+        android:id="@+id/doce_img_uno_correcto"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="@+id/doce_img_uno"
+        app:layout_constraintBottom_toBottomOf="@+id/doce_img_uno"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/doce_img_uno"
+        app:layout_constraintTop_toTopOf="@+id/doce_img_uno"
+        android:layout_marginTop="8dp" />
+    <ImageView
+        android:id="@+id/doce_img_dos_correcto"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="@+id/doce_img_dos"
+        app:layout_constraintBottom_toBottomOf="@+id/doce_img_dos"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/doce_img_dos"
+        app:layout_constraintTop_toTopOf="@+id/doce_img_dos"
+        android:layout_marginTop="8dp" />
+    <ImageView
+        android:id="@+id/doce_img_tres_correcto"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="@+id/doce_img_tres"
+        app:layout_constraintBottom_toBottomOf="@+id/doce_img_tres"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/doce_img_tres"
+        app:layout_constraintTop_toTopOf="@+id/doce_img_tres"
+        android:layout_marginTop="8dp" />
+    <ImageView
+        android:id="@+id/doce_img_cuatro_correcto"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="@+id/doce_img_cuatro"
+        app:layout_constraintBottom_toBottomOf="@+id/doce_img_cuatro"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/doce_img_cuatro"
+        app:layout_constraintTop_toTopOf="@+id/doce_img_cuatro"
+        android:layout_marginTop="8dp" />
+    <ImageView
+        android:id="@+id/doce_img_cinco_correcto"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="@+id/doce_img_cinco"
+        app:layout_constraintBottom_toBottomOf="@+id/doce_img_cinco"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/doce_img_cinco"
+        app:layout_constraintTop_toTopOf="@+id/doce_img_cinco"
+        android:layout_marginTop="8dp" />
+    <ImageView
+        android:id="@+id/doce_img_seis_correcto"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="@+id/doce_img_seis"
+        app:layout_constraintBottom_toBottomOf="@+id/doce_img_seis"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/doce_img_seis"
+        app:layout_constraintTop_toTopOf="@+id/doce_img_seis"
+        android:layout_marginTop="8dp" />
+    <ImageView
+        android:id="@+id/doce_img_siete_correcto"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:layout_constraintBottom_toBottomOf="@+id/doce_img_siete"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="@+id/doce_img_siete"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/doce_img_siete"
+        app:layout_constraintTop_toTopOf="@+id/doce_img_siete"
+        android:layout_marginTop="8dp" />
+    <ImageView
+        android:id="@+id/doce_img_ocho_correcto"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="@+id/doce_img_ocho"
+        app:layout_constraintBottom_toBottomOf="@+id/doce_img_ocho"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/doce_img_ocho"
+        app:layout_constraintTop_toTopOf="@+id/doce_img_ocho"
+        android:layout_marginTop="8dp" />
+    <ImageView
+        android:id="@+id/doce_img_nueve_correcto"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="@+id/doce_img_nueve"
+        app:layout_constraintBottom_toBottomOf="@+id/doce_img_nueve"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/doce_img_nueve"
+        app:layout_constraintTop_toTopOf="@+id/doce_img_nueve"
+        android:layout_marginTop="8dp" />
+    <ImageView
+        android:id="@+id/doce_img_diez_correcto"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:layout_constraintBottom_toBottomOf="@+id/doce_img_diez"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="@+id/doce_img_diez"
+        app:layout_constraintTop_toTopOf="@+id/doce_img_diez"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/doce_img_diez" />
+    <ImageView
+        android:id="@+id/doce_img_once_correcto"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="@+id/doce_img_once"
+        app:layout_constraintBottom_toBottomOf="@+id/doce_img_once"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/doce_img_once"
+        app:layout_constraintTop_toTopOf="@+id/doce_img_once"
+        android:layout_marginTop="8dp" />
+    <ImageView
+        android:id="@+id/doce_img_doce_correcto"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="@+id/doce_img_doce"
+        app:layout_constraintBottom_toBottomOf="@+id/doce_img_doce"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/doce_img_doce"
+        app:layout_constraintTop_toTopOf="@+id/doce_img_doce"
+        android:layout_marginTop="8dp" />
 
-            <ImageView
-                android:id="@+id/doce_img_nueve"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="end"
-                android:src="@drawable/carta_boca_abajo"
-                />
-
-        </android.support.design.widget.CoordinatorLayout>
-
-        <android.support.design.widget.CoordinatorLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp" >
-
-            <ImageView
-                android:id="@+id/doce_img_diez"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:src="@drawable/carta_boca_abajo"
-                />
-
-            <ImageView
-                android:id="@+id/doce_img_once"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                android:src="@drawable/carta_boca_abajo"
-                />
-
-            <ImageView
-                android:id="@+id/doce_img_doce"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="end"
-                android:src="@drawable/carta_boca_abajo"
-                />
-
-        </android.support.design.widget.CoordinatorLayout>
-
-    </LinearLayout>
-
-</ScrollView>
+</android.support.constraint.ConstraintLayout>

@@ -32,11 +32,11 @@ public class InformacionTarjetaActivity extends AppCompatActivity implements Vie
         }
 
         ImageView imagen = (ImageView) findViewById(R.id.info_imagen);
-        TextView texto = (TextView) findViewById(R.id.info_informacion);
+        ImageView ivTexto = (ImageView) findViewById(R.id.info_iv_caja_texto);
 
         if (tarjeta != null){
-            Glide.with(this).load(tarjeta.getIdDrawable()).into(imagen);
-            texto.setText(tarjeta.getInformation());
+            Glide.with(this).load(tarjeta.getIdCompleta()).into(imagen);
+            Glide.with(this).load(tarjeta.getIdInformation()).into(ivTexto);
         }
     }
 

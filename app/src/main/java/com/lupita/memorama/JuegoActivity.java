@@ -1,6 +1,7 @@
 package com.lupita.memorama;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -34,10 +35,13 @@ public class JuegoActivity extends AppCompatActivity implements View.OnClickList
     private boolean hayVolteada;
     /* Posición de la tarjeta que esta volteada, -1 si ninguna lo esta */
     private int posicionVolteada;
+    /* Tarjeta Auxiliar */
+    private Tarjeta tarjetaEnPosition;
     /* ImageView's que contienen a las tarjetas */
     private ImageView uno, dos, tres, cuatro, cinco, seis, siete, ocho, nueve, diez, once, doce;
     /* ImageView's que indican si un par de tarjetas volteadas fueron iguales o no */
-    private ImageView unoCorrecto, dosCorrecto, tresCorrecto, cuatroCorrecto;
+    private ImageView unoCorrecto, dosCorrecto, tresCorrecto, cuatroCorrecto, cincoCorrecto, seisCorrecto;
+    private ImageView sieteCorrecto, ochoCorrecto, nueveCorrecto, diezCorrecto, onceCorrecto, doceCorrecto;
     /* Contador que indica cuantos pares de tarjetas ha hecho el usuario */
     private int pares;
     /* Entero que nos indica los números de pares que tenemos que lograr */
@@ -59,7 +63,7 @@ public class JuegoActivity extends AppCompatActivity implements View.OnClickList
          Bundle bundle = getIntent().getExtras();
          if (bundle != null) {
              numeroDeTarjetas = bundle.getInt("numeroDeTarjetas");
-             modoJuego=bundle.getInt("modoJuego");
+             modoJuego = bundle.getInt("modoJuego");
          }
 
          // Si ocurre un error desconocido con el bundle
@@ -146,46 +150,108 @@ public class JuegoActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case 8:
                 uno = (ImageView) findViewById(R.id.ocho_img_uno);
+                unoCorrecto = (ImageView) findViewById(R.id.ocho_img_uno_correcto);
                 dos = (ImageView) findViewById(R.id.ocho_img_dos);
+                dosCorrecto = (ImageView) findViewById(R.id.ocho_img_dos_correcto);
                 tres = (ImageView) findViewById(R.id.ocho_img_tres);
+                tresCorrecto = (ImageView) findViewById(R.id.ocho_img_tres_correcto);
                 cuatro = (ImageView) findViewById(R.id.ocho_img_cuatro);
+                cuatroCorrecto = (ImageView) findViewById(R.id.ocho_img_cuatro_correcto);
                 cinco = (ImageView) findViewById(R.id.ocho_img_cinco);
+                cincoCorrecto = (ImageView) findViewById(R.id.ocho_img_cinco_correcto);
                 seis = (ImageView) findViewById(R.id.ocho_img_seis);
+                seisCorrecto = (ImageView) findViewById(R.id.ocho_img_seis_correcto);
                 siete = (ImageView) findViewById(R.id.ocho_img_siete);
+                sieteCorrecto = (ImageView) findViewById(R.id.ocho_img_siete_correcto);
                 ocho = (ImageView) findViewById(R.id.ocho_img_ocho);
+                ochoCorrecto = (ImageView) findViewById(R.id.ocho_img_ocho_correcto);
                 break;
             case 12:
                 uno = (ImageView) findViewById(R.id.doce_img_uno);
+                unoCorrecto = (ImageView) findViewById(R.id.doce_img_uno_correcto);
                 dos = (ImageView) findViewById(R.id.doce_img_dos);
+                dosCorrecto = (ImageView) findViewById(R.id.doce_img_dos_correcto);
                 tres = (ImageView) findViewById(R.id.doce_img_tres);
+                tresCorrecto = (ImageView) findViewById(R.id.doce_img_tres_correcto);
                 cuatro = (ImageView) findViewById(R.id.doce_img_cuatro);
+                cuatroCorrecto = (ImageView) findViewById(R.id.doce_img_cuatro_correcto);
                 cinco = (ImageView) findViewById(R.id.doce_img_cinco);
+                cincoCorrecto = (ImageView) findViewById(R.id.doce_img_cinco_correcto);
                 seis = (ImageView) findViewById(R.id.doce_img_seis);
+                seisCorrecto = (ImageView) findViewById(R.id.doce_img_seis_correcto);
                 siete = (ImageView) findViewById(R.id.doce_img_siete);
+                sieteCorrecto = (ImageView) findViewById(R.id.doce_img_siete_correcto);
                 ocho = (ImageView) findViewById(R.id.doce_img_ocho);
+                ochoCorrecto = (ImageView) findViewById(R.id.doce_img_ocho_correcto);
                 nueve = (ImageView) findViewById(R.id.doce_img_nueve);
+                nueveCorrecto = (ImageView) findViewById(R.id.doce_img_nueve_correcto);
                 diez = (ImageView) findViewById(R.id.doce_img_diez);
+                diezCorrecto = (ImageView) findViewById(R.id.doce_img_diez_correcto);
                 once = (ImageView) findViewById(R.id.doce_img_once);
+                onceCorrecto = (ImageView) findViewById(R.id.doce_img_once_correcto);
                 doce = (ImageView) findViewById(R.id.doce_img_doce);
+                doceCorrecto = (ImageView) findViewById(R.id.doce_img_doce_correcto);
                 break;
         }
     }
 
     private void colocaTodasLasTarjetas() {
         todasLasTarjetas = new LinkedList<>();
-        // Ejemplo
-        Tarjeta java = new Tarjeta(R.drawable.java_logo, "Java es muy genial");
-        Tarjeta kotlin = new Tarjeta(R.drawable.kotlin_logo, "Kotlin es genial");
-        Tarjeta python = new Tarjeta(R.drawable.python_logo, "Python no es genial");
-        Tarjeta cSharp = new Tarjeta(R.drawable.csharp_logo, "C# == Java");
-        Tarjeta cPlusPlus = new Tarjeta(R.drawable.cpp_logo, "C++ es cool");
-        Tarjeta html = new Tarjeta(R.drawable.html_logo, "HTML es el mejor lenguaje de programación.\nNótese el sarcasmo");
-        todasLasTarjetas.add(java);
-        todasLasTarjetas.add(kotlin);
-        todasLasTarjetas.add(python);
-        todasLasTarjetas.add(cSharp);
-        todasLasTarjetas.add(cPlusPlus);
-        todasLasTarjetas.add(html);
+        Tarjeta aux;
+        aux = new Tarjeta(R.drawable.mx_tarjeta_1, R.drawable.mx_texto_1, R.drawable.mx_completa_1);
+        todasLasTarjetas.add(aux);
+        aux = new Tarjeta(R.drawable.mx_tarjeta_2, R.drawable.mx_texto_2, R.drawable.mx_completa_2);
+        todasLasTarjetas.add(aux);
+        aux = new Tarjeta(R.drawable.mx_tarjeta_3, R.drawable.mx_texto_3, R.drawable.mx_completa_3);
+        todasLasTarjetas.add(aux);
+        aux = new Tarjeta(R.drawable.mx_tarjeta_4, R.drawable.mx_texto_4, R.drawable.mx_completa_4);
+        todasLasTarjetas.add(aux);
+        aux = new Tarjeta(R.drawable.mx_tarjeta_5, R.drawable.mx_texto_5, R.drawable.mx_completa_5);
+        todasLasTarjetas.add(aux);
+        aux = new Tarjeta(R.drawable.mx_tarjeta_6, R.drawable.mx_texto_6, R.drawable.mx_completa_6);
+        todasLasTarjetas.add(aux);
+        aux = new Tarjeta(R.drawable.mx_tarjeta_7, R.drawable.mx_texto_7, R.drawable.mx_completa_7);
+        todasLasTarjetas.add(aux);
+        aux = new Tarjeta(R.drawable.mx_tarjeta_8, R.drawable.mx_texto_8, R.drawable.mx_completa_8);
+        todasLasTarjetas.add(aux);
+        aux = new Tarjeta(R.drawable.mx_tarjeta_9, R.drawable.mx_texto_9, R.drawable.mx_completa_9);
+        todasLasTarjetas.add(aux);
+        aux = new Tarjeta(R.drawable.mx_tarjeta_10, R.drawable.mx_texto_10, R.drawable.mx_completa_10);
+        todasLasTarjetas.add(aux);
+        aux = new Tarjeta(R.drawable.mx_tarjeta_11, R.drawable.mx_texto_11, R.drawable.mx_completa_11);
+        todasLasTarjetas.add(aux);
+        aux = new Tarjeta(R.drawable.mx_tarjeta_12, R.drawable.mx_texto_12, R.drawable.mx_completa_12);
+        todasLasTarjetas.add(aux);
+        aux = new Tarjeta(R.drawable.mx_tarjeta_13, R.drawable.mx_texto_13, R.drawable.mx_completa_13);
+        todasLasTarjetas.add(aux);
+        aux = new Tarjeta(R.drawable.mx_tarjeta_14, R.drawable.mx_texto_14, R.drawable.mx_completa_14);
+        todasLasTarjetas.add(aux);
+        aux = new Tarjeta(R.drawable.mx_tarjeta_15, R.drawable.mx_texto_15, R.drawable.mx_completa_15);
+        todasLasTarjetas.add(aux);
+        aux = new Tarjeta(R.drawable.mx_tarjeta_16, R.drawable.mx_texto_16, R.drawable.mx_completa_16);
+        todasLasTarjetas.add(aux);
+        aux = new Tarjeta(R.drawable.mx_tarjeta_17, R.drawable.mx_texto_17, R.drawable.mx_completa_17);
+        todasLasTarjetas.add(aux);
+        aux = new Tarjeta(R.drawable.mx_tarjeta_18, R.drawable.mx_texto_18, R.drawable.mx_completa_18);
+        todasLasTarjetas.add(aux);
+        aux = new Tarjeta(R.drawable.mx_tarjeta_19, R.drawable.mx_texto_19, R.drawable.mx_completa_19);
+        todasLasTarjetas.add(aux);
+        aux = new Tarjeta(R.drawable.mx_tarjeta_20, R.drawable.mx_texto_20, R.drawable.mx_completa_20);
+        todasLasTarjetas.add(aux);
+        aux = new Tarjeta(R.drawable.mx_tarjeta_21, R.drawable.mx_texto_21, R.drawable.mx_completa_21);
+        todasLasTarjetas.add(aux);
+        aux = new Tarjeta(R.drawable.mx_tarjeta_22, R.drawable.mx_texto_22, R.drawable.mx_completa_22);
+        todasLasTarjetas.add(aux);
+        aux = new Tarjeta(R.drawable.mx_tarjeta_23, R.drawable.mx_texto_23, R.drawable.mx_completa_23);
+        todasLasTarjetas.add(aux);
+        aux = new Tarjeta(R.drawable.mx_tarjeta_24, R.drawable.mx_texto_24, R.drawable.mx_completa_24);
+        todasLasTarjetas.add(aux);
+        aux = new Tarjeta(R.drawable.mx_tarjeta_25, R.drawable.mx_texto_25, R.drawable.mx_completa_25);
+        todasLasTarjetas.add(aux);
+        aux = new Tarjeta(R.drawable.mx_tarjeta_26, R.drawable.mx_texto_26, R.drawable.mx_completa_26);
+        todasLasTarjetas.add(aux);
+        aux = new Tarjeta(R.drawable.mx_tarjeta_27, R.drawable.mx_texto_27, R.drawable.mx_completa_27);
+        todasLasTarjetas.add(aux);
     }
 
     private void cuatroTarjetas() {
@@ -379,41 +445,19 @@ public class JuegoActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void clickEnTarjeta(final int position) {
-        final Tarjeta tarjetaEnPosition = tarjetasEnJuego[position];
+        tarjetaEnPosition = tarjetasEnJuego[position];
         Glide.with(this).load(tarjetaEnPosition.getIdDrawable()).into(imageViewFrom(position));
 
         if (hayVolteada){
             Tarjeta tarjetaVolteada = tarjetasEnJuego[posicionVolteada];
             if (tarjetaEnPosition.equals(tarjetaVolteada)){
                 // Volteó ambas cartas iguales
-                // Quitamos listeners para evitar que puedan dar click en ellos
-                imageViewFrom(position).setOnClickListener(null);
-                imagenesSinListener.add(imageViewFrom(position));
-                imageViewFrom(posicionVolteada).setOnClickListener(null);
-                imagenesSinListener.add(imageViewFrom(posicionVolteada));
-
                 // Colocamos encima la imagen de correcto
                 Glide.with(this).load(R.drawable.correctas).into(imageViewCorrectFrom(position));
                 Glide.with(this).load(R.drawable.correctas).into(imageViewCorrectFrom(posicionVolteada));
 
-                hayVolteada = false;
-                posicionVolteada = -1;
-                pares++;
-
-                Intent infoIntetn;
-
-                if (pares == totalDePares){
-                    Intent infoIntent = new Intent(this, InformacionTarjetaActivity.class);
-                    infoIntent.putExtra("tarjeta", tarjetaEnPosition);
-                    infoIntent.putExtra("gane", true);
-                    startActivity(infoIntent);
-                    finish();
-                }else{
-                    Intent infoIntent = new Intent(this, InformacionTarjetaActivity.class);
-                    infoIntent.putExtra("tarjeta", tarjetaEnPosition);
-                    infoIntent.putExtra("gane", false);
-                    startActivity(infoIntent);
-                }
+                AsyncTaskTarjetasCorrectas asyncTaskTarjetasCorrectas = new AsyncTaskTarjetasCorrectas(position);
+                asyncTaskTarjetasCorrectas.execute();
 
             }else{
                 // No volteó las mismas tarjetas
@@ -476,6 +520,22 @@ public class JuegoActivity extends AppCompatActivity implements View.OnClickList
                 return tresCorrecto;
             case 3:
                 return cuatroCorrecto;
+            case 4:
+                return cincoCorrecto;
+            case 5:
+                return seisCorrecto;
+            case 6:
+                return sieteCorrecto;
+            case 7:
+                return ochoCorrecto;
+            case 8:
+                return nueveCorrecto;
+            case 9:
+                return diezCorrecto;
+            case 10:
+                return onceCorrecto;
+            case 11:
+                return doceCorrecto;
             default:
                 return unoCorrecto;
         }
@@ -516,7 +576,6 @@ public class JuegoActivity extends AppCompatActivity implements View.OnClickList
                     tres.setOnClickListener(null);
                     cuatro.setOnClickListener(null);
             }
-
         }
 
         @Override
@@ -546,6 +605,77 @@ public class JuegoActivity extends AppCompatActivity implements View.OnClickList
 
             hayVolteada = false;
             posicionVolteada = -1;
+        }
+    }
+
+    private class AsyncTaskTarjetasCorrectas extends AsyncTask<Void, Void, Void>{
+
+        int position;
+        Intent infoIntent;
+
+        public AsyncTaskTarjetasCorrectas(int position) {
+            super();
+            this.position = position;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            // Quitamos listeners para evitar que puedan dar click en ellos
+            imageViewFrom(position).setOnClickListener(null);
+            imagenesSinListener.add(imageViewFrom(position));
+            imageViewFrom(posicionVolteada).setOnClickListener(null);
+            imagenesSinListener.add(imageViewFrom(posicionVolteada));
+
+            // Quitamos listeners para que nada pueda ser seleccionado mientras esperamos
+            // switch en forma de cascada
+            switch(numeroDeTarjetas){
+                case 12:
+                    nueve.setOnClickListener(null);
+                    diez.setOnClickListener(null);
+                    once.setOnClickListener(null);
+                    doce.setOnClickListener(null);
+                case 8:
+                    cinco.setOnClickListener(null);
+                    seis.setOnClickListener(null);
+                    siete.setOnClickListener(null);
+                    ocho.setOnClickListener(null);
+                case 4:
+                    uno.setOnClickListener(null);
+                    dos.setOnClickListener(null);
+                    tres.setOnClickListener(null);
+                    cuatro.setOnClickListener(null);
+            }
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            hayVolteada = false;
+            posicionVolteada = -1;
+            pares++;
+
+            if (pares == totalDePares){
+                infoIntent = new Intent(JuegoActivity.this, InformacionTarjetaActivity.class);
+                infoIntent.putExtra("tarjeta", tarjetaEnPosition);
+                infoIntent.putExtra("gane", true);
+            }else{
+                infoIntent = new Intent(JuegoActivity.this, InformacionTarjetaActivity.class);
+                infoIntent.putExtra("tarjeta", tarjetaEnPosition);
+                infoIntent.putExtra("gane", false);
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            // Les asignamos el listener si es que no se lo habiamos quitado anteriormente
+            for (int i = 0; i < numeroDeTarjetas; i++)
+                if (!imagenesSinListener.contains(imageViewFrom(i)))
+                    imageViewFrom(i).setOnClickListener(JuegoActivity.this);
+
+            hayVolteada = false;
+            posicionVolteada = -1;
+
+            startActivity(infoIntent);
         }
     }
 

@@ -8,10 +8,12 @@ import java.io.Serializable;
 
 public class Tarjeta implements Serializable{
 
-    /** Entero identificador de la imagen asignada a la tarjeta **/
+    /* Entero identificador de la imagen asignada a la tarjeta */
     private int idDrawable;
-    /** Texto informativo asociado a la tarjeta **/
-    private String information;
+    /* Entero identificador del texto asignado a la tarjeta */
+    private int idInformation;
+    /* Entero identificador de la imagen completa que esta asociada a la tarjeta */
+    private int idCompleta;
 
     /**
      *  Constructor público vacío.
@@ -21,11 +23,13 @@ public class Tarjeta implements Serializable{
     /**
      * Contructor público con parametros.
      * @param idDrawable identificador del drawable que le corresponde a la tarjeta.
-     * @param information texto informativo de la tarjeta.
+     * @param idInformation identificador del drawable/texto informativo de la tarjeta.
+     * @param idCompleta identificador del drawable que corresponte a la imagen completa asociada
      */
-    public Tarjeta(int idDrawable, String information) {
+    public Tarjeta(int idDrawable, int idInformation, int idCompleta) {
         this.idDrawable = idDrawable;
-        this.information = information;
+        this.idInformation = idInformation;
+        this.idCompleta = idCompleta;
     }
 
     /**
@@ -44,18 +48,29 @@ public class Tarjeta implements Serializable{
     }
 
     /**
-     * @return la cadena representativa de la información de la tarjeta.
+     * @return el id del drawable representativo de la información de la tarjeta.
      */
-    public String getInformation() {
-        return information;
+    public int getIdInformation() {
+        return idInformation;
     }
 
     /**
      * Coloca la cadena informativa que queremos asociar a la tarjeta.
-     * @param information cadena que asociaremos con la tarjeta.
+     * @param idInformation identificador del drawable/texto que asociaremos con la tarjeta.
      */
-    public void setInformation(String information) {
-        this.information = information;
+    public void setIdInformation(int idInformation) {
+        this.idInformation = idInformation;
+    }
+
+    /**
+     * @return
+     */
+    public int getIdCompleta() {
+        return idCompleta;
+    }
+
+    public void setIdCompleta(int idCompleta) {
+        this.idCompleta = idCompleta;
     }
 
     /**
@@ -68,7 +83,8 @@ public class Tarjeta implements Serializable{
     public boolean equals(Object obj) {
         if (obj instanceof Tarjeta){
             Tarjeta aComparar = (Tarjeta) obj;
-            if (aComparar.getIdDrawable() == idDrawable && aComparar.getInformation().equals(information))
+            if (aComparar.getIdDrawable() == idDrawable && aComparar.getIdInformation() == idInformation
+                    && aComparar.getIdCompleta() == idCompleta)
                 return true;
         }
         return false;
