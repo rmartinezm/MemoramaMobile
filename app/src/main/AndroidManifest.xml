@@ -18,10 +18,10 @@
         </activity>
         <activity android:name=".JuegoActivity" />
         <activity android:name=".FelicidadesActivity" />
-        <activity android:name=".InformacionTarjetaActivity"></activity>
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".NumCartas"></activity>
-        <activity android:name=".Info"></activity>
+        <activity android:name=".InformacionTarjetaActivity" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".NumCartas" />
+        <activity android:name=".Info" />
     </application>
 
 </manifest>

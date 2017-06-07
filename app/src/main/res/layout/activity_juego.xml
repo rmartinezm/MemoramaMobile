@@ -3,33 +3,17 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:orientation="vertical"
+    android:background="#c0c0c0"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <LinearLayout
-        android:layout_marginLeft="5dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="30dp"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
     <ImageView
-        android:id="@+id/iv_atras"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:src="@drawable/regresar_icon"/>
-
-    <TextView
-        android:id="@+id/tv_atras"
-        android:text="Regresar"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:layout_gravity="center_vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    </LinearLayout>
+        android:id="@+id/juego_regresar"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/regresar" />
 
     <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"

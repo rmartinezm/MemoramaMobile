@@ -28,9 +28,7 @@ public class JuegoActivity extends AppCompatActivity implements View.OnClickList
     /** View's que haremos visibles dependiendo el numero de tarjetas solicitado **/
     private View includeCuatro, includeOcho, includeDoce;
     /** Botón ir atras **/
-    private ImageView ivAtras;
-    /** TextView con la misma funcionalidad que la imagen **/
-    private TextView tvAtras;
+    private ImageView atras;
     /** Objeto random para posicionar tarjetas al azar **/
     private SecureRandom random;
     /** Variable que nos indica si una tarjeta esta volteada **/
@@ -67,11 +65,8 @@ public class JuegoActivity extends AppCompatActivity implements View.OnClickList
          if (numeroDeTarjetas == 0)
              finish();
 
-         ivAtras = (ImageView) findViewById(R.id.iv_atras);
-         tvAtras = (TextView) findViewById(R.id.tv_atras);
-
-         ivAtras.setOnClickListener(this);
-         tvAtras.setOnClickListener(this);
+         atras = (ImageView) findViewById(R.id.juego_regresar);
+         atras.setOnClickListener(this);
 
          // Inicializamos las variables y hacemos visible la que corresponda
          includeCuatro = findViewById(R.id.include_cuatro);
@@ -293,11 +288,8 @@ public class JuegoActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
 
         switch (v.getId()){
-            // Botones atras
-            case R.id.iv_atras:
-                onBackPressed();
-                break;
-            case R.id.tv_atras:
+            // Boton atras
+            case R.id.juego_regresar:
                 onBackPressed();
                 break;
 
@@ -461,8 +453,7 @@ public class JuegoActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void colocaBocaAbajo(int position){
-        int fondoPorOmision = R.drawable.omision;
-        Glide.with(this).load(fondoPorOmision).into(imageViewFrom(position));
+        Glide.with(this).load(R.drawable.carta_boca_abajo).into(imageViewFrom(position));
     }
 
     /** Clase privada para asegurar que hay a lo más dos tarjetas seleccionadas **/

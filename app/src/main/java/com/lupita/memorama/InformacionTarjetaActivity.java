@@ -22,6 +22,8 @@ public class InformacionTarjetaActivity extends AppCompatActivity implements Vie
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_informacion_tarjeta);
 
+        getSupportActionBar().hide();
+
         iv_atras= (ImageView) findViewById(R.id.iv_atras);
         tv_atras= (TextView) findViewById(R.id.tv_atras);
 

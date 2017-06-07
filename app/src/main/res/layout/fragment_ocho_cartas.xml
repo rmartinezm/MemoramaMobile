@@ -19,14 +19,14 @@
             android:layout_height="100dp"
             android:layout_marginRight="70dp"
             android:layout_marginEnd="70dp"
-            android:src="@drawable/omision"
+            android:src="@drawable/carta_boca_abajo"
             />
 
         <ImageView
             android:id="@+id/ocho_img_dos"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/omision"
+            android:src="@drawable/carta_boca_abajo"
             />
 
     </LinearLayout>
@@ -43,14 +43,14 @@
             android:layout_height="100dp"
             android:layout_marginRight="70dp"
             android:layout_marginEnd="70dp"
-            android:src="@drawable/omision"
+            android:src="@drawable/carta_boca_abajo"
             />
 
         <ImageView
             android:id="@+id/ocho_img_cuatro"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/omision"
+            android:src="@drawable/carta_boca_abajo"
             />
 
     </LinearLayout>
@@ -67,14 +67,14 @@
             android:layout_height="100dp"
             android:layout_marginRight="70dp"
             android:layout_marginEnd="70dp"
-            android:src="@drawable/omision"
+            android:src="@drawable/carta_boca_abajo"
             />
 
         <ImageView
             android:id="@+id/ocho_img_seis"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/omision"
+            android:src="@drawable/carta_boca_abajo"
             />
 
     </LinearLayout>
@@ -91,14 +91,14 @@
             android:layout_height="100dp"
             android:layout_marginRight="70dp"
             android:layout_marginEnd="70dp"
-            android:src="@drawable/omision"
+            android:src="@drawable/carta_boca_abajo"
             />
 
         <ImageView
             android:id="@+id/ocho_img_ocho"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/omision"
+            android:src="@drawable/carta_boca_abajo"
             />
 
     </LinearLayout>

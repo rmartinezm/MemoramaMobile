@@ -13,7 +13,7 @@ public class FelicidadesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_felicidades);
 
-        getSupportActionBar().setTitle("Felicidades!");
+        getSupportActionBar().hide();
 
         Button btn = (Button) findViewById(R.id.feliciadaes_btn_jugar);
         btn.setOnClickListener(new View.OnClickListener() {

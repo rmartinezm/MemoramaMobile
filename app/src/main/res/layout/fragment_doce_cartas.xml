@@ -18,7 +18,7 @@
                 android:id="@+id/doce_img_uno"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:src="@drawable/omision"
+                android:src="@drawable/carta_boca_abajo"
                 />
 
             <ImageView
@@ -26,14 +26,14 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
-                android:src="@drawable/omision"/>
+                android:src="@drawable/carta_boca_abajo"/>
 
             <ImageView
                 android:layout_width="100dp"
                 android:id="@+id/doce_img_tres"
                 android:layout_height="100dp"
                 android:layout_gravity="end"
-                android:src="@drawable/omision"
+                android:src="@drawable/carta_boca_abajo"
                 />
 
         </android.support.design.widget.CoordinatorLayout>
@@ -47,7 +47,7 @@
                 android:id="@+id/doce_img_cuatro"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:src="@drawable/omision"
+                android:src="@drawable/carta_boca_abajo"
                 />
 
             <ImageView
@@ -55,7 +55,7 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
-                android:src="@drawable/omision"
+                android:src="@drawable/carta_boca_abajo"
                 />
 
             <ImageView
@@ -63,7 +63,7 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="end"
-                android:src="@drawable/omision"
+                android:src="@drawable/carta_boca_abajo"
                 />
 
         </android.support.design.widget.CoordinatorLayout>
@@ -77,7 +77,7 @@
                 android:id="@+id/doce_img_siete"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:src="@drawable/omision"
+                android:src="@drawable/carta_boca_abajo"
                 />
 
             <ImageView
@@ -85,7 +85,7 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
-                android:src="@drawable/omision"
+                android:src="@drawable/carta_boca_abajo"
                 />
 
             <ImageView
@@ -93,7 +93,7 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="end"
-                android:src="@drawable/omision"
+                android:src="@drawable/carta_boca_abajo"
                 />
 
         </android.support.design.widget.CoordinatorLayout>
@@ -107,7 +107,7 @@
                 android:id="@+id/doce_img_diez"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:src="@drawable/omision"
+                android:src="@drawable/carta_boca_abajo"
                 />
 
             <ImageView
@@ -115,7 +115,7 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
-                android:src="@drawable/omision"
+                android:src="@drawable/carta_boca_abajo"
                 />
 
             <ImageView
@@ -123,7 +123,7 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="end"
-                android:src="@drawable/omision"
+                android:src="@drawable/carta_boca_abajo"
                 />
 
         </android.support.design.widget.CoordinatorLayout>

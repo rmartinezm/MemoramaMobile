@@ -15,6 +15,8 @@ public class Info extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
 
+        getSupportActionBar().hide();
+
         logo_unam= (ImageView) findViewById(R.id.logo_unam);
         logo_umobile= (ImageView) findViewById(R.id.logo_umobile);
 

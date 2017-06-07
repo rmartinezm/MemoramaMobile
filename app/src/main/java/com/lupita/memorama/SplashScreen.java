@@ -9,8 +9,8 @@ import android.view.WindowManager;
 
 public class SplashScreen extends AppCompatActivity {
 
-    // 2.5 segundos
-    private static int SPLASH_TIME_OUT = 1000;
+    // 2 segundos
+    private static int SPLASH_TIME_OUT = 2000;
 
 
     @Override
@@ -27,10 +27,7 @@ public class SplashScreen extends AppCompatActivity {
             public void run() {
                 Intent intent = new Intent(SplashScreen.this, MainActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                // Prueba
-                //intent.putExtra("numeroDeTarjetas", 12);
                 startActivity(intent);
-                finish();
             }
         }, SPLASH_TIME_OUT);
     }
