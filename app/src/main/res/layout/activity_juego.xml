@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:layout_height="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#c0c0c0"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:background="@drawable/back_btns_numero_cartas"
+    android:fitsSystemWindows="true">
 
     <ImageView
         android:id="@+id/juego_regresar"
@@ -12,14 +12,14 @@
         android:layout_height="55dp"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="15dp"
         android:src="@drawable/regresar" />
 
-    <RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@id/juego_regresar"
         android:orientation="vertical"
         tools:context="com.lupita.memorama.JuegoActivity">
 
@@ -32,12 +32,12 @@
             layout="@layout/fragment_ocho_cartas" />
 
         <include
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
             android:id="@+id/include_doce"
             layout="@layout/fragment_doce_cartas"
-            android:layout_gravity="center"/>
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center" />
 
     </RelativeLayout>
 
-</LinearLayout>
+</RelativeLayout>

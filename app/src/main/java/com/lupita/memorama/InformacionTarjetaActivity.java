@@ -13,13 +13,16 @@ import com.lupita.memorama.Clases.Tarjeta;
 public class InformacionTarjetaActivity extends AppCompatActivity implements View.OnClickListener {
 
     private boolean gane;
+    private View view;
+    private int uiOptions=View.SYSTEM_UI_FLAG_FULLSCREEN;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_informacion_tarjeta);
 
-        getSupportActionBar().hide();
+        view=getWindow().getDecorView();
+        view.setSystemUiVisibility(uiOptions);
 
         findViewById(R.id.info_iv_regresar).setOnClickListener(this);
 
@@ -58,6 +61,13 @@ public class InformacionTarjetaActivity extends AppCompatActivity implements Vie
             startActivity(intent);
         }else
             super.onBackPressed();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        view=getWindow().getDecorView();
+        view.setSystemUiVisibility(uiOptions);
     }
 
 

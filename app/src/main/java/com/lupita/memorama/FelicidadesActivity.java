@@ -10,14 +10,18 @@ import com.bumptech.glide.Glide;
 
 public class FelicidadesActivity extends AppCompatActivity implements View.OnClickListener{
 
+    private View view;
+    private int uiOptions=View.SYSTEM_UI_FLAG_FULLSCREEN;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_felicidades);
 
-        getSupportActionBar().hide();
+        view=getWindow().getDecorView();
+        view.setSystemUiVisibility(uiOptions);
 
-        Glide.with(this).load(R.drawable.felicidades).into(((ImageView) findViewById(R.id.iv_felicidades)));
+        Glide.with(this).load(R.drawable.felicidades).into((ImageView) findViewById(R.id.iv_felicidades));
 
         findViewById(R.id.felicidades_regresar).setOnClickListener(this);
 
@@ -35,4 +39,12 @@ public class FelicidadesActivity extends AppCompatActivity implements View.OnCli
         startActivity(new Intent(FelicidadesActivity.this, MainActivity.class));
         finish();
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        view=getWindow().getDecorView();
+        view.setSystemUiVisibility(uiOptions);
+    }
+
 }

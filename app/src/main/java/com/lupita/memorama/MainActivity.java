@@ -1,6 +1,7 @@
 package com.lupita.memorama;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -11,15 +12,16 @@ import com.bumptech.glide.Glide;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private  ImageView iv_info, iv_mx, iv_uni;
+    private View view;
+    private int uiOptions=View.SYSTEM_UI_FLAG_FULLSCREEN;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getSupportActionBar().hide();
-
-        Glide.with(this).load(R.drawable.fondo_main).into(((ImageView) findViewById(R.id.main_fondo)));
+        view=getWindow().getDecorView();
+        view.setSystemUiVisibility(uiOptions);
 
         iv_info= (ImageView) findViewById(R.id.iv_info);
         iv_mx= (ImageView) findViewById(R.id.iv_mx);
@@ -52,6 +54,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
         startActivity(intent);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        view=getWindow().getDecorView();
+        view.setSystemUiVisibility(uiOptions);
     }
 
 }

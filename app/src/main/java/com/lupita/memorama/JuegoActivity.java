@@ -49,13 +49,17 @@ public class JuegoActivity extends AppCompatActivity implements View.OnClickList
     /* Lista de ImageView's que tienen desactivado el OnClickListener */
     private LinkedList<ImageView> imagenesSinListener;
 
+    private View view;
+    private int uiOptions=View.SYSTEM_UI_FLAG_FULLSCREEN;
+
+
      @Override
     protected void onCreate(Bundle savedInstanceState) {
          super.onCreate(savedInstanceState);
          setContentView(R.layout.activity_juego);
 
-         // Ocultamos el actionbar
-         getSupportActionBar().hide();
+         view=getWindow().getDecorView();
+         view.setSystemUiVisibility(uiOptions);
 
          // Nos pasaran por el bundle el numero de tarjetas que tendremos que poner en el activity
          numeroDeTarjetas = 0;
@@ -197,61 +201,123 @@ public class JuegoActivity extends AppCompatActivity implements View.OnClickList
 
     private void colocaTodasLasTarjetas() {
         todasLasTarjetas = new LinkedList<>();
-        Tarjeta aux;
-        aux = new Tarjeta(R.drawable.mx_tarjeta_1, R.drawable.mx_texto_1, R.drawable.mx_completa_1);
-        todasLasTarjetas.add(aux);
-        aux = new Tarjeta(R.drawable.mx_tarjeta_2, R.drawable.mx_texto_2, R.drawable.mx_completa_2);
-        todasLasTarjetas.add(aux);
-        aux = new Tarjeta(R.drawable.mx_tarjeta_3, R.drawable.mx_texto_3, R.drawable.mx_completa_3);
-        todasLasTarjetas.add(aux);
-        aux = new Tarjeta(R.drawable.mx_tarjeta_4, R.drawable.mx_texto_4, R.drawable.mx_completa_4);
-        todasLasTarjetas.add(aux);
-        aux = new Tarjeta(R.drawable.mx_tarjeta_5, R.drawable.mx_texto_5, R.drawable.mx_completa_5);
-        todasLasTarjetas.add(aux);
-        aux = new Tarjeta(R.drawable.mx_tarjeta_6, R.drawable.mx_texto_6, R.drawable.mx_completa_6);
-        todasLasTarjetas.add(aux);
-        aux = new Tarjeta(R.drawable.mx_tarjeta_7, R.drawable.mx_texto_7, R.drawable.mx_completa_7);
-        todasLasTarjetas.add(aux);
-        aux = new Tarjeta(R.drawable.mx_tarjeta_8, R.drawable.mx_texto_8, R.drawable.mx_completa_8);
-        todasLasTarjetas.add(aux);
-        aux = new Tarjeta(R.drawable.mx_tarjeta_9, R.drawable.mx_texto_9, R.drawable.mx_completa_9);
-        todasLasTarjetas.add(aux);
-        aux = new Tarjeta(R.drawable.mx_tarjeta_10, R.drawable.mx_texto_10, R.drawable.mx_completa_10);
-        todasLasTarjetas.add(aux);
-        aux = new Tarjeta(R.drawable.mx_tarjeta_11, R.drawable.mx_texto_11, R.drawable.mx_completa_11);
-        todasLasTarjetas.add(aux);
-        aux = new Tarjeta(R.drawable.mx_tarjeta_12, R.drawable.mx_texto_12, R.drawable.mx_completa_12);
-        todasLasTarjetas.add(aux);
-        aux = new Tarjeta(R.drawable.mx_tarjeta_13, R.drawable.mx_texto_13, R.drawable.mx_completa_13);
-        todasLasTarjetas.add(aux);
-        aux = new Tarjeta(R.drawable.mx_tarjeta_14, R.drawable.mx_texto_14, R.drawable.mx_completa_14);
-        todasLasTarjetas.add(aux);
-        aux = new Tarjeta(R.drawable.mx_tarjeta_15, R.drawable.mx_texto_15, R.drawable.mx_completa_15);
-        todasLasTarjetas.add(aux);
-        aux = new Tarjeta(R.drawable.mx_tarjeta_16, R.drawable.mx_texto_16, R.drawable.mx_completa_16);
-        todasLasTarjetas.add(aux);
-        aux = new Tarjeta(R.drawable.mx_tarjeta_17, R.drawable.mx_texto_17, R.drawable.mx_completa_17);
-        todasLasTarjetas.add(aux);
-        aux = new Tarjeta(R.drawable.mx_tarjeta_18, R.drawable.mx_texto_18, R.drawable.mx_completa_18);
-        todasLasTarjetas.add(aux);
-        aux = new Tarjeta(R.drawable.mx_tarjeta_19, R.drawable.mx_texto_19, R.drawable.mx_completa_19);
-        todasLasTarjetas.add(aux);
-        aux = new Tarjeta(R.drawable.mx_tarjeta_20, R.drawable.mx_texto_20, R.drawable.mx_completa_20);
-        todasLasTarjetas.add(aux);
-        aux = new Tarjeta(R.drawable.mx_tarjeta_21, R.drawable.mx_texto_21, R.drawable.mx_completa_21);
-        todasLasTarjetas.add(aux);
-        aux = new Tarjeta(R.drawable.mx_tarjeta_22, R.drawable.mx_texto_22, R.drawable.mx_completa_22);
-        todasLasTarjetas.add(aux);
-        aux = new Tarjeta(R.drawable.mx_tarjeta_23, R.drawable.mx_texto_23, R.drawable.mx_completa_23);
-        todasLasTarjetas.add(aux);
-        aux = new Tarjeta(R.drawable.mx_tarjeta_24, R.drawable.mx_texto_24, R.drawable.mx_completa_24);
-        todasLasTarjetas.add(aux);
-        aux = new Tarjeta(R.drawable.mx_tarjeta_25, R.drawable.mx_texto_25, R.drawable.mx_completa_25);
-        todasLasTarjetas.add(aux);
-        aux = new Tarjeta(R.drawable.mx_tarjeta_26, R.drawable.mx_texto_26, R.drawable.mx_completa_26);
-        todasLasTarjetas.add(aux);
-        aux = new Tarjeta(R.drawable.mx_tarjeta_27, R.drawable.mx_texto_27, R.drawable.mx_completa_27);
-        todasLasTarjetas.add(aux);
+        if (modoJuego==0){
+            Tarjeta aux;
+            aux = new Tarjeta(R.drawable.mx_tarjeta_1, R.drawable.mx_texto_1, R.drawable.mx_completa_1);
+            todasLasTarjetas.add(aux);
+            aux = new Tarjeta(R.drawable.mx_tarjeta_2, R.drawable.mx_texto_2, R.drawable.mx_completa_2);
+            todasLasTarjetas.add(aux);
+            aux = new Tarjeta(R.drawable.mx_tarjeta_3, R.drawable.mx_texto_3, R.drawable.mx_completa_3);
+            todasLasTarjetas.add(aux);
+            aux = new Tarjeta(R.drawable.mx_tarjeta_4, R.drawable.mx_texto_4, R.drawable.mx_completa_4);
+            todasLasTarjetas.add(aux);
+            aux = new Tarjeta(R.drawable.mx_tarjeta_5, R.drawable.mx_texto_5, R.drawable.mx_completa_5);
+            todasLasTarjetas.add(aux);
+            aux = new Tarjeta(R.drawable.mx_tarjeta_6, R.drawable.mx_texto_6, R.drawable.mx_completa_6);
+            todasLasTarjetas.add(aux);
+            aux = new Tarjeta(R.drawable.mx_tarjeta_7, R.drawable.mx_texto_7, R.drawable.mx_completa_7);
+            todasLasTarjetas.add(aux);
+            aux = new Tarjeta(R.drawable.mx_tarjeta_8, R.drawable.mx_texto_8, R.drawable.mx_completa_8);
+            todasLasTarjetas.add(aux);
+            aux = new Tarjeta(R.drawable.mx_tarjeta_9, R.drawable.mx_texto_9, R.drawable.mx_completa_9);
+            todasLasTarjetas.add(aux);
+            aux = new Tarjeta(R.drawable.mx_tarjeta_10, R.drawable.mx_texto_10, R.drawable.mx_completa_10);
+            todasLasTarjetas.add(aux);
+            aux = new Tarjeta(R.drawable.mx_tarjeta_11, R.drawable.mx_texto_11, R.drawable.mx_completa_11);
+            todasLasTarjetas.add(aux);
+            aux = new Tarjeta(R.drawable.mx_tarjeta_12, R.drawable.mx_texto_12, R.drawable.mx_completa_12);
+            todasLasTarjetas.add(aux);
+            aux = new Tarjeta(R.drawable.mx_tarjeta_13, R.drawable.mx_texto_13, R.drawable.mx_completa_13);
+            todasLasTarjetas.add(aux);
+            aux = new Tarjeta(R.drawable.mx_tarjeta_14, R.drawable.mx_texto_14, R.drawable.mx_completa_14);
+            todasLasTarjetas.add(aux);
+            aux = new Tarjeta(R.drawable.mx_tarjeta_15, R.drawable.mx_texto_15, R.drawable.mx_completa_15);
+            todasLasTarjetas.add(aux);
+            aux = new Tarjeta(R.drawable.mx_tarjeta_16, R.drawable.mx_texto_16, R.drawable.mx_completa_16);
+            todasLasTarjetas.add(aux);
+            aux = new Tarjeta(R.drawable.mx_tarjeta_17, R.drawable.mx_texto_17, R.drawable.mx_completa_17);
+            todasLasTarjetas.add(aux);
+            aux = new Tarjeta(R.drawable.mx_tarjeta_18, R.drawable.mx_texto_18, R.drawable.mx_completa_18);
+            todasLasTarjetas.add(aux);
+            aux = new Tarjeta(R.drawable.mx_tarjeta_19, R.drawable.mx_texto_19, R.drawable.mx_completa_19);
+            todasLasTarjetas.add(aux);
+            aux = new Tarjeta(R.drawable.mx_tarjeta_20, R.drawable.mx_texto_20, R.drawable.mx_completa_20);
+            todasLasTarjetas.add(aux);
+            aux = new Tarjeta(R.drawable.mx_tarjeta_21, R.drawable.mx_texto_21, R.drawable.mx_completa_21);
+            todasLasTarjetas.add(aux);
+            aux = new Tarjeta(R.drawable.mx_tarjeta_22, R.drawable.mx_texto_22, R.drawable.mx_completa_22);
+            todasLasTarjetas.add(aux);
+            aux = new Tarjeta(R.drawable.mx_tarjeta_23, R.drawable.mx_texto_23, R.drawable.mx_completa_23);
+            todasLasTarjetas.add(aux);
+            aux = new Tarjeta(R.drawable.mx_tarjeta_24, R.drawable.mx_texto_24, R.drawable.mx_completa_24);
+            todasLasTarjetas.add(aux);
+            aux = new Tarjeta(R.drawable.mx_tarjeta_25, R.drawable.mx_texto_25, R.drawable.mx_completa_25);
+            todasLasTarjetas.add(aux);
+            aux = new Tarjeta(R.drawable.mx_tarjeta_26, R.drawable.mx_texto_26, R.drawable.mx_completa_26);
+            todasLasTarjetas.add(aux);
+            aux = new Tarjeta(R.drawable.mx_tarjeta_27, R.drawable.mx_texto_27, R.drawable.mx_completa_27);
+            todasLasTarjetas.add(aux);
+        }
+        else {
+            Tarjeta aux;
+            aux = new Tarjeta(R.drawable.uni_tarjeta_1, R.drawable.uni_texto_1, R.drawable.uni_completa_1);
+            todasLasTarjetas.add(aux);
+            aux = new Tarjeta(R.drawable.uni_tarjeta_2, R.drawable.uni_texto_2, R.drawable.uni_completa_2);
+            todasLasTarjetas.add(aux);
+            aux = new Tarjeta(R.drawable.uni_tarjeta_3, R.drawable.uni_texto_3, R.drawable.uni_completa_3);
+            todasLasTarjetas.add(aux);
+            aux = new Tarjeta(R.drawable.uni_tarjeta_4, R.drawable.uni_texto_4, R.drawable.uni_completa_4);
+            todasLasTarjetas.add(aux);
+            aux = new Tarjeta(R.drawable.uni_tarjeta_5, R.drawable.uni_texto_5, R.drawable.uni_completa_5);
+            todasLasTarjetas.add(aux);
+            aux = new Tarjeta(R.drawable.uni_tarjeta_6, R.drawable.uni_texto_6, R.drawable.uni_completa_6);
+            todasLasTarjetas.add(aux);
+            aux = new Tarjeta(R.drawable.uni_tarjeta_7, R.drawable.uni_texto_7, R.drawable.uni_completa_7);
+            todasLasTarjetas.add(aux);
+            aux = new Tarjeta(R.drawable.uni_tarjeta_8, R.drawable.uni_texto_8, R.drawable.uni_completa_8);
+            todasLasTarjetas.add(aux);
+            aux = new Tarjeta(R.drawable.uni_tarjeta_9, R.drawable.uni_texto_9, R.drawable.uni_completa_9);
+            todasLasTarjetas.add(aux);
+            aux = new Tarjeta(R.drawable.uni_tarjeta_10, R.drawable.uni_texto_10, R.drawable.uni_completa_10);
+            todasLasTarjetas.add(aux);
+            aux = new Tarjeta(R.drawable.uni_tarjeta_11, R.drawable.uni_texto_11, R.drawable.uni_completa_11);
+            todasLasTarjetas.add(aux);
+            aux = new Tarjeta(R.drawable.uni_tarjeta_12, R.drawable.uni_texto_12, R.drawable.uni_completa_12);
+            todasLasTarjetas.add(aux);
+            aux = new Tarjeta(R.drawable.uni_tarjeta_13, R.drawable.uni_texto_13, R.drawable.uni_completa_13);
+            todasLasTarjetas.add(aux);
+            aux = new Tarjeta(R.drawable.uni_tarjeta_14, R.drawable.uni_texto_14, R.drawable.uni_completa_14);
+            todasLasTarjetas.add(aux);
+            aux = new Tarjeta(R.drawable.uni_tarjeta_15, R.drawable.uni_texto_15, R.drawable.uni_completa_15);
+            todasLasTarjetas.add(aux);
+            aux = new Tarjeta(R.drawable.uni_tarjeta_16, R.drawable.uni_texto_16, R.drawable.uni_completa_16);
+            todasLasTarjetas.add(aux);
+            aux = new Tarjeta(R.drawable.uni_tarjeta_17, R.drawable.uni_texto_17, R.drawable.uni_completa_17);
+            todasLasTarjetas.add(aux);
+            aux = new Tarjeta(R.drawable.uni_tarjeta_18, R.drawable.uni_texto_18, R.drawable.uni_completa_18);
+            todasLasTarjetas.add(aux);
+            aux = new Tarjeta(R.drawable.uni_tarjeta_19, R.drawable.uni_texto_19, R.drawable.uni_completa_19);
+            todasLasTarjetas.add(aux);
+            aux = new Tarjeta(R.drawable.uni_tarjeta_20, R.drawable.uni_texto_20, R.drawable.uni_completa_20);
+            todasLasTarjetas.add(aux);
+            aux = new Tarjeta(R.drawable.uni_tarjeta_21, R.drawable.uni_texto_21, R.drawable.uni_completa_21);
+            todasLasTarjetas.add(aux);
+            aux = new Tarjeta(R.drawable.uni_tarjeta_22, R.drawable.uni_texto_22, R.drawable.uni_completa_22);
+            todasLasTarjetas.add(aux);
+            aux = new Tarjeta(R.drawable.uni_tarjeta_23, R.drawable.uni_texto_23, R.drawable.uni_completa_23);
+            todasLasTarjetas.add(aux);
+            aux = new Tarjeta(R.drawable.uni_tarjeta_24, R.drawable.uni_texto_24, R.drawable.uni_completa_24);
+            todasLasTarjetas.add(aux);
+            aux = new Tarjeta(R.drawable.uni_tarjeta_25, R.drawable.uni_texto_25, R.drawable.uni_completa_25);
+            todasLasTarjetas.add(aux);
+            aux = new Tarjeta(R.drawable.uni_tarjeta_26, R.drawable.uni_texto_26, R.drawable.uni_completa_26);
+            todasLasTarjetas.add(aux);
+            aux = new Tarjeta(R.drawable.uni_tarjeta_27, R.drawable.uni_texto_27, R.drawable.uni_completa_27);
+            todasLasTarjetas.add(aux);
+            aux = new Tarjeta(R.drawable.uni_tarjeta_28, R.drawable.uni_texto_28, R.drawable.uni_completa_28);
+            todasLasTarjetas.add(aux);
+        }
+
     }
 
     private void cuatroTarjetas() {
@@ -678,5 +744,13 @@ public class JuegoActivity extends AppCompatActivity implements View.OnClickList
             startActivity(infoIntent);
         }
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        view=getWindow().getDecorView();
+        view.setSystemUiVisibility(uiOptions);
+    }
+
 
 }

@@ -8,17 +8,22 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+
 public class NumCartas extends AppCompatActivity implements View.OnClickListener {
 
     private ImageView btn_4, btn_8, btn_12, regresar;
     private int modoJuego;
+    private View view;
+    private int uiOptions=View.SYSTEM_UI_FLAG_FULLSCREEN;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_num_cartas);
 
-        getSupportActionBar().hide();
+        view=getWindow().getDecorView();
+        view.setSystemUiVisibility(uiOptions);
 
         Bundle bundle = getIntent().getExtras();
         modoJuego=bundle.getInt("modoJuego");
@@ -56,4 +61,12 @@ public class NumCartas extends AppCompatActivity implements View.OnClickListener
         }
         startActivity(intent);
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        view=getWindow().getDecorView();
+        view.setSystemUiVisibility(uiOptions);
+    }
+
 }
