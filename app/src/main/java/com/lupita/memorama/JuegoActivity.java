@@ -1,6 +1,7 @@
 package com.lupita.memorama;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.media.Image;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -55,6 +56,7 @@ public class JuegoActivity extends AppCompatActivity implements View.OnClickList
 
      @Override
     protected void onCreate(Bundle savedInstanceState) {
+         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
          super.onCreate(savedInstanceState);
          setContentView(R.layout.activity_juego);
 

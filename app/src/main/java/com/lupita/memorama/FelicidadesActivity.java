@@ -1,6 +1,7 @@
 package com.lupita.memorama;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -15,16 +16,14 @@ public class FelicidadesActivity extends AppCompatActivity implements View.OnCli
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_felicidades);
 
         view=getWindow().getDecorView();
         view.setSystemUiVisibility(uiOptions);
 
-        Glide.with(this).load(R.drawable.felicidades).into((ImageView) findViewById(R.id.iv_felicidades));
-
         findViewById(R.id.felicidades_regresar).setOnClickListener(this);
-
         findViewById(R.id.feliciadaes_iv_jugar).setOnClickListener(this);
     }
 
